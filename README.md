@@ -1,2 +1,2 @@
-# itemsdat-decoder
-this is an remake of https://github.com/KIPASGTS/itemsdat_decoders. here's you can fully print all data of items.dat;
+# "Remake" || "Recode"
+I am recode this itemsdat-decoder from just only print [itemid, texture name, and item name], now can fully printed the data.
