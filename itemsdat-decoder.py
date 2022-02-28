@@ -213,7 +213,7 @@ def decFile(data):
             memPos += 4
             
         memPos += 4 #skip some data
-        print(growTime)
+        print(name)
         if i != itemID:
             print('Unordered item ' + str(itemID) + '/' + str(itemCount))
     
