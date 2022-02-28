@@ -2,7 +2,7 @@
 # remaked by iFanpS; helped by KIPAS (alot of help)
 import struct
 SECRET = "PBG892FXX982ABC*"
-def xordec(id, nlen, pos, enc, data):
+def memcpy(id, nlen, pos, enc, data):
     str = ''
     if enc == True:
         for i in range(nlen):
@@ -36,14 +36,14 @@ def decFile(data):
         ##name parse
         strLen = data[memPos] + data[memPos + 1] * 256
         memPos += 2
-        name = xordec(itemID,strLen,memPos, False, data)
+        name = memcpy(itemID,strLen,memPos, False, data)
         memPos += strLen
         ##name parse end
         
         ##texture parse
         strLen = data[memPos] + data[memPos + 1] * 256
         memPos += 2
-        texture = xordec(itemID,strLen,memPos, True, data)
+        texture = memcpy(itemID,strLen,memPos, True, data)
         memPos += strLen
         ##texture parse
         
@@ -111,7 +111,7 @@ def decFile(data):
         ##extrFile parse
         strLen = data[memPos] + data[memPos + 1] * 256
         memPos += 2
-        extraFile = xordec(itemID,strLen,memPos, True, data)
+        extraFile = memcpy(itemID,strLen,memPos, True, data)
         memPos += strLen
         ##extraFile parse
         
@@ -128,22 +128,22 @@ def decFile(data):
         ##pet option
         strLen = data[memPos] + data[memPos + 1] * 256
         memPos += 2
-        petName = xordec(itemID,strLen,memPos, True, data)
+        petName = memcpy(itemID,strLen,memPos, True, data)
         memPos += strLen
         
         strLen = data[memPos] + data[memPos + 1] * 256
         memPos += 2
-        petPrefix = xordec(itemID,strLen,memPos, True, data)
+        petPrefix = memcpy(itemID,strLen,memPos, True, data)
         memPos += strLen
         
         strLen = data[memPos] + data[memPos + 1] * 256
         memPos += 2
-        petSuffix = xordec(itemID,strLen,memPos, True, data)
+        petSuffix = memcpy(itemID,strLen,memPos, True, data)
         memPos += strLen
         
         strLen = data[memPos] + data[memPos + 1] * 256
         memPos += 2
-        petAbillity = xordec(itemID,strLen,memPos, True, data)
+        petAbillity = memcpy(itemID,strLen,memPos, True, data)
         memPos += strLen
         ##pet option
         
@@ -183,17 +183,17 @@ def decFile(data):
         ##item extra data
         strLen = data[memPos] + data[memPos + 1] * 256
         memPos += 2
-        extraOptions = xordec(itemID,strLen,memPos, True, data)
+        extraOptions = memcpy(itemID,strLen,memPos, True, data)
         memPos += strLen
         
         strLen = data[memPos] + data[memPos + 1] * 256
         memPos += 2
-        texture2 = xordec(itemID,strLen,memPos, True, data)
+        texture2 = memcpy(itemID,strLen,memPos, True, data)
         memPos += strLen
         
         strLen = data[memPos] + data[memPos + 1] * 256
         memPos += 2
-        extraOptions2 = xordec(itemID,strLen,memPos, True, data)
+        extraOptions2 = memcpy(itemID,strLen,memPos, True, data)
         memPos += strLen
         
         ##item extra data
@@ -203,7 +203,7 @@ def decFile(data):
         if (itemsdatVersion >= 11):
             strLen = data[memPos] + data[memPos + 1] * 256
             memPos += 2
-            punchOptions = xordec(itemID,strLen,memPos, True, data)
+            punchOptions = memcpy(itemID,strLen,memPos, True, data)
             memPos += strLen
             
         if (itemsdatVersion >= 12):
@@ -213,7 +213,7 @@ def decFile(data):
             memPos += 4
             
         memPos += 4 #skip some data
-        print(seedBase)
+        print(growTime)
         if i != itemID:
             print('Unordered item ' + str(itemID) + '/' + str(itemCount))
     
