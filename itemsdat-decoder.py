@@ -206,14 +206,20 @@ def decFile(data):
             punchOptions = memcpy(itemID,strLen,memPos, True, data)
             memPos += strLen
             
-        if (itemsdatVersion >= 12):
+            if (itemsdatVersion >= 12):
+
             memPos += 13
+# skip data
         
         if (itemsdatVersion >= 13):
             memPos += 4
-            
-        memPos += 4 #skip some data
+# skip data
+        
+        if  (itemsdatVersion >= 14):
+            memPos += 4 # skip data
+      
         print(name)
+# print what you want here        
         if i != itemID:
             print('Unordered item ' + str(itemID) + '/' + str(itemCount))
     
